@@ -17,14 +17,15 @@ namespace Didata
 
     static void ConsoleMenus()
     {
-      JsonMethods methods = new JsonMethods();
+      JsonMethods jsonmethods = new JsonMethods();
+      CSVMethods csvmethods = new CSVMethods();
 
       var menu = new EasyConsole.Menu()
-      .Add("-d mode", () => methods.GetAllJsonFilesFromDirectory())
-      .Add("-r mode", () => methods.ReadJsonFromFile())
-      .Add("-r multiplemode", () => methods.ReadJsonFromMultipleFiles())
-      .Add("-f mode", () => methods.CreateObjectToJSONFile())
-      .Add("-csv mode", () => methods.CreateCSVFileFromJSON());
+      .Add("-d mode", () => jsonmethods.GetAllJsonFilesFromDirectory())
+      .Add("-r mode", () => jsonmethods.ReadJsonFromFile())
+      .Add("-r multiplemode", () => jsonmethods.ReadJsonFromMultipleFiles())
+      .Add("-f mode", () => jsonmethods.CreateObjectToJSONFile())
+      .Add("-csv mode", () => csvmethods.CreateCSVFileFromJSON());
       menu.Display();
     }
   }

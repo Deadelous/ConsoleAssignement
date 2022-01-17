@@ -6,13 +6,9 @@ namespace Didata.Core.Interfaces
   {
     void ReadJsonFromFile();
 
-    void CreateCSVFileFromJSON();
-
     void GetAllJsonFilesFromDirectory();
 
     void CreateObjectToJSONFile();
-
-    void showProductsInConsoleJson();
   }
 }
 

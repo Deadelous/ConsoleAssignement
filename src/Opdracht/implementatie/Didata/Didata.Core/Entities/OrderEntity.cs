@@ -15,7 +15,7 @@ namespace Didata.Core.Entities
   /// CustomerId = Klantnummer, numeriek en groter dan 0
   /// Products: Lijst van artikelen, minimaal 1 artikel
   /// </summary>
-  public class OrderEntity 
+  public class OrderEntity
   {
     public OrderEntity()
     {
@@ -44,11 +44,11 @@ namespace Didata.Core.Entities
 
     [Required]
     [Range(1, int.MaxValue, ErrorMessage = "Product should be greater than or equal to 1")]
-  
+
     public int ProductCount { get; private set; }
 
     public double TotalPrice { get; private set; }
-    
+
     public List<ProductEntity> Products { get; private set; }
 
     public override string ToString()
