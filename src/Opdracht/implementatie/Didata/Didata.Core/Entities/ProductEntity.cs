@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
+
 
 namespace Didata.Core.Entities
 {
+  /// <summary>
+  /// ProductId = Artikelnummer, alfanumeriek, max 50 karakters
+  /// Description = Artikelomschrijving, tekst max 200 karakters
+  /// Amount = Aantal, decimaal maximaal 2 cijfers achter het punt.
+  /// Price = Prijs, decimaal maximaal 2 cijfers achter het punt.
+  /// </summary>
+
   public class ProductEntity
   {
     public ProductEntity()

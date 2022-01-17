@@ -1,25 +1,35 @@
-﻿using System;
+﻿using CsvHelper.Configuration;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Didata.Core.Entities
 {
-  public class OrderEntity
+
+  /// <summary>
+  /// OrderId = Bestelling id, numeriek en groter dan 0
+  /// Description = Omschrijving, tekst max 100 karakters en optioneel
+  /// CustomerId = Klantnummer, numeriek en groter dan 0
+  /// Products: Lijst van artikelen, minimaal 1 artikel
+  /// </summary>
+  public class OrderEntity 
   {
     public OrderEntity()
     {
 
     }
 
-    public OrderEntity(long orderId, string description, long customerId, IEnumerable<ProductEntity> products)
+    public OrderEntity(long orderId, string description, long customerId, List<ProductEntity> products)
     {
       OrderId = orderId;
       Description = description;
       CustomerId = customerId;
       Products = products;
+      ProductCount = products.Count;
+      TotalPrice = products.Sum(x => x.Price);
     }
 
     [Required]
@@ -34,7 +44,12 @@ namespace Didata.Core.Entities
 
     [Required]
     [Range(1, int.MaxValue, ErrorMessage = "Product should be greater than or equal to 1")]
-    public IEnumerable<ProductEntity> Products { get; set; }
+  
+    public int ProductCount { get; private set; }
+
+    public double TotalPrice { get; private set; }
+    
+    public List<ProductEntity> Products { get; private set; }
 
     public override string ToString()
     {

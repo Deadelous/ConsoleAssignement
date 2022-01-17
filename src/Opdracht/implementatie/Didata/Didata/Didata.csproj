@@ -13,7 +13,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Didata.Application\Didata.Application.csproj" />
     <ProjectReference Include="..\Didata.Core\Didata.Core.csproj" />
-    <ProjectReference Include="..\Didata.Infrastructure\Didata.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
